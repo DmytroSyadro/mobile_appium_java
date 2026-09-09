@@ -20,6 +20,7 @@ public class FillFormInTest extends BaseTest {
         driver.hideKeyboard();
         WebElement femaleRadioButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("com.androidsample.generalstore:id/radioFemale")));
         femaleRadioButton.click();
+        driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
         scrollToElement("Argentina");
         driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
         sleep(2000);
