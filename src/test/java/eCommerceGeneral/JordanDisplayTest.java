@@ -1,6 +1,7 @@
 package eCommerceGeneral;
 
 import appiumTests.BaseTest;
+import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -48,6 +49,12 @@ public class JordanDisplayTest extends BaseTest {
                throw new RuntimeException("Product 'Jordan 6 Rings' not found in the cart. Actual product name: " + productName2);
             }
         }
+        WebElement ele = driver.findElement(By.id("com.androidsample.generalstore:id/termsButton"));
+        longPressAction(ele);
+        driver.findElement(By.id("android:id/button1")).click();
+        driver.findElement(AppiumBy.className("android.widget.CheckBox")).click();
+        driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
+        sleep(2000);
     }
     @Test(priority = 1)
     public void priceValidationTest() {
@@ -80,5 +87,7 @@ public class JordanDisplayTest extends BaseTest {
             double price = Double.parseDouble(amountString.substring(1));
             totalSum += price;
         }
-        }
+
+    }
+
 }
