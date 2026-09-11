@@ -2,7 +2,10 @@ package eCommerceGeneral;
 
 import appiumTests.BaseTest;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,6 +14,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 
 public class JordanDisplayTest extends BaseTest {
 
@@ -54,7 +58,30 @@ public class JordanDisplayTest extends BaseTest {
         driver.findElement(By.id("android:id/button1")).click();
         driver.findElement(AppiumBy.className("android.widget.CheckBox")).click();
         driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
-        sleep(2000);
+        Set<String> contexts= driver.getContextHandles();
+        for(String contextName : contexts) {
+            System.out.println(contextName);
+        }
+        WebDriverWait webviewWait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        webviewWait.until(d -> {
+            Set<String> ctxs = driver.getContextHandles();
+            return ctxs.stream().anyMatch(c -> c.contains("WEBVIEW"));
+        });
+
+        String webviewContext = driver.getContextHandles().stream()
+                .filter(c -> c.contains("WEBVIEW"))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("No WEBVIEW context found"));
+        driver.context(webviewContext);
+        driver.findElement(AppiumBy.className("android.widget.EditText")).sendKeys("Dmytro");
+        driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        driver.context("NATIVE_APP");
+
+
+
+
+        //Hybrid - Web App -> Google page
     }
     @Test(priority = 1)
     public void priceValidationTest() {

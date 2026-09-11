@@ -42,6 +42,7 @@ public class BaseTest {
         // options.setApp("D:\\test_mobile\\mobile_appium_java\\src\\test\\java\\resources\\ApiDemos-debug(2).apk");
         options.setApp("D:\\test_mobile\\mobile_appium_java\\src\\test\\java\\resources\\General-Store.apk");
         driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIMEOUT));
     }
 
     @AfterClass
@@ -55,7 +56,6 @@ public class BaseTest {
             service.stop();
         }
     }
-
     protected void waitUntilClickable(WebDriver driver, WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -98,11 +98,10 @@ public class BaseTest {
                 "percent", 0.75
         ));
 
-        }
+    }
     }
 
     private WebDriverWait waitE(){
         return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
     }
-
 }
