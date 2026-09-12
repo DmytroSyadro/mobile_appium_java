@@ -3,7 +3,7 @@ package appiumTests;
 import org.openqa.selenium.DeviceRotation;
 import org.testng.annotations.Test;
 
-public class MiscellaneousAppiumTest extends BaseTest  {
+public class MiscellaneousAppiumTest extends AndroidBaseTest {
     @Test
     public void miscellaneousTest() {
         DeviceRotation landscape = new DeviceRotation(0, 0, 90);

@@ -1,6 +1,6 @@
 package eCommerceGeneral;
 
-import appiumTests.BaseTest;
+import appiumTests.AndroidBaseTest;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -16,7 +16,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
-public class JordanDisplayTest extends BaseTest {
+public class JordanDisplayTest extends AndroidBaseTest {
 
 
     private static int TIMEOUT = 10;

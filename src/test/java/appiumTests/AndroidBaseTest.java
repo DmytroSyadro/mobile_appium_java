@@ -5,7 +5,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,7 +20,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
 
-public class BaseTest {
+public class AndroidBaseTest {
     protected AndroidDriver driver;
     protected AppiumDriverLocalService service;
 

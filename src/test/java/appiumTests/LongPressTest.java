@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class LongPressTest extends BaseTest {
+public class LongPressTest extends AndroidBaseTest {
 
     @Test
     public void longPressTest() {

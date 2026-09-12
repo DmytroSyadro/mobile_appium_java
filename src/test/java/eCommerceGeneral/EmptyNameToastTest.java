@@ -1,6 +1,6 @@
 package eCommerceGeneral;
 
-import appiumTests.BaseTest;
+import appiumTests.AndroidBaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class EmptyNameToastTest extends BaseTest {
+public class EmptyNameToastTest extends AndroidBaseTest {
 
     @Test
     public void emptyNameToastTest() {
