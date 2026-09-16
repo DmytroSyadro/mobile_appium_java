@@ -17,7 +17,7 @@ public class SwipeTest extends AndroidBaseTest {
         WebElement firstImage = driver.findElement(By.xpath("//android.widget.ImageView[1]"));
         String firstImageFocusable = firstImage.getAttribute("focusable");
         Assert.assertEquals(firstImageFocusable, "true");
-
+//
         swipeAction(
                 firstImage,
                 direction
